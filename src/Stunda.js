@@ -1,9 +1,11 @@
 function Stunda(props) {
   return (
-    <ul>
       <li>{props.nosaukums}</li>
-    </ul>
   )
 }
 
 export default Stunda;
+
+
+// Vai HTML ir pareizs?
+// Un kā izlabot?
