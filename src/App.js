@@ -10,8 +10,6 @@ function App() {
   const otrdienasStundas = [
     "Cita stunda",
     "Vēl stunda",
-    "Iedod bucu comam",
-    "Kissing the homies"
   ];
   return (
     <>
