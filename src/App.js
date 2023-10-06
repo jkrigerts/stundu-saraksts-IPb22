@@ -11,6 +11,14 @@ function App() {
     "Cita stunda",
     "Vēl stunda",
   ];
+  const visasStundas = {
+    "Pirmdiena": [
+      "Sports pie Klintas",
+    "Dabaszinības mīlu fiziku",
+    "Vēsture",
+    "🫥"
+    ]
+  }
   return (
     <>
       <div>te būs stundu saraksts šodien</div>
