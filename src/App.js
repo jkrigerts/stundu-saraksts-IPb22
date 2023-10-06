@@ -12,11 +12,11 @@ function App() {
     "Vēl stunda",
   ];
   const visasStundas = {
-    "Pirmdiena": [
+    Pirmdiena: [
       "Sports pie Klintas",
-    "Dabaszinības mīlu fiziku",
-    "Vēsture",
-    "🫥"
+      "Dabaszinības mīlu fiziku",
+      "Vēsture",
+      "🫥"
     ]
   }
   return (
@@ -41,3 +41,6 @@ export default App;
 // JS - .map() ir masīvu metode,
 // kura apskata ikkatru masīva elementu
 // un atgriež jaunu masīvu (return Array)
+
+
+//
