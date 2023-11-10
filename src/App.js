@@ -1,6 +1,52 @@
+import { useEffect, useState } from "react";
+
 import Diena from "./Diena";
 
+// Mūsu uzdevums ir dabūt datus no API
+
 function App() {
+  const [lessons, setLessons] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function getLessons() {
+      const response = await fetch(
+        "https://cheese-cake.onthewifi.com/api/lessons"
+      );
+      const data = await response.json();
+      // Parādi tikai masīvu ar stundām
+      console.log(data.IPb22);
+      const cleansedData = [
+        {
+          diena: "Pirmdiena",
+          stundas: data.IPb22[0].classes,
+        },
+        {
+          diena: "Otrdiena",
+          stundas: data.IPb22[1].classes,
+        },
+        {
+          diena: "Trešdiena",
+          stundas: data.IPb22[2].classes,
+        },
+        {
+          diena: "Ceturdiena",
+          stundas: data.IPb22[3].classes,
+        },
+        {
+          diena: "Piektdiena",
+          stundas: data.IPb22[4].classes,
+        },
+      ];
+      // Ieliec datus stāvokļa mainīgajā
+      setLessons(cleansedData);
+      setLoading(false);
+    }
+
+    getLessons();
+  }, []);
+
+  // Uztaisa useEffect un console.log(data)
   const pirmdienasStundas = [
     "Sports pie Klintas",
     "Dabaszinības mīlu fiziku",
@@ -58,13 +104,13 @@ function App() {
   ];
 
   // Kā visasStundas pārtais'oit par masīvu?
-  const dienasJSX = visasStundas.map((diena, indekss) => {
+  const dienasJSX = lessons.map((diena, indekss) => {
     return <Diena key={indekss} diena={diena.diena} stundas={diena.stundas} />;
   });
   return (
     <>
       <div>Šīs nedēļas stunas, paldies, Matīsss</div>
-      {dienasJSX}
+      {loading ? <p>Loading...</p> : dienasJSX}
     </>
   );
 }
